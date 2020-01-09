@@ -1,4 +1,6 @@
-### View My Completed Work: https://kabeh2.github.io/webtesting-iii-challenge/
+### View APP: https://kabeh2.github.io/webtesting-iii-challenge/
+
+**_Most of the work is in the code as it was mostly testing and converting state management to redux_**
 
 # Testing III
 
