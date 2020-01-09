@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/webtesting-iii-challenge/static/css/main.ed1c7ff7.chunk.css",
+    "main.js": "/webtesting-iii-challenge/static/js/main.1e233d84.chunk.js",
+    "main.js.map": "/webtesting-iii-challenge/static/js/main.1e233d84.chunk.js.map",
+    "runtime-main.js": "/webtesting-iii-challenge/static/js/runtime-main.9c1dc7ac.js",
+    "runtime-main.js.map": "/webtesting-iii-challenge/static/js/runtime-main.9c1dc7ac.js.map",
+    "static/js/2.ef954bb7.chunk.js": "/webtesting-iii-challenge/static/js/2.ef954bb7.chunk.js",
+    "static/js/2.ef954bb7.chunk.js.map": "/webtesting-iii-challenge/static/js/2.ef954bb7.chunk.js.map",
+    "index.html": "/webtesting-iii-challenge/index.html",
+    "precache-manifest.f8238c9a41d97f68fe5e40a04e79739c.js": "/webtesting-iii-challenge/precache-manifest.f8238c9a41d97f68fe5e40a04e79739c.js",
+    "service-worker.js": "/webtesting-iii-challenge/service-worker.js",
+    "static/css/main.ed1c7ff7.chunk.css.map": "/webtesting-iii-challenge/static/css/main.ed1c7ff7.chunk.css.map",
+    "static/js/2.ef954bb7.chunk.js.LICENSE": "/webtesting-iii-challenge/static/js/2.ef954bb7.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9c1dc7ac.js",
+    "static/js/2.ef954bb7.chunk.js",
+    "static/css/main.ed1c7ff7.chunk.css",
+    "static/js/main.1e233d84.chunk.js"
+  ]
+}
