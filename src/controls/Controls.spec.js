@@ -1,15 +1,30 @@
 import React from "react";
+import { createStore } from "redux";
+import { Provider } from "react-redux";
 import { render, fireEvent, cleanup } from "@testing-library/react";
+import { initialState, reducer } from "../redux/reducer";
 import "@testing-library/jest-dom/extend-expect";
 import Controls from "./Controls";
 import Dashboard from "../dashboard/Dashboard";
 
 // Test away!
+function renderWithRedux(
+  component,
+  { initialState, store = createStore(reducer, initialState) } = {}
+) {
+  return {
+    ...render(<Provider store={store}>{component}</Provider>),
+    // adding `store` to the returned utilities to allow us
+    // to reference it in our tests (just try to avoid using
+    // this to test implementation details).
+    store
+  };
+}
 
 describe("CONTROLS COMPONENT", () => {
   afterEach(cleanup);
   test("provide buttons to toggle the closed and locked states.", () => {
-    const { getByTestId } = render(<Controls />);
+    const { getByTestId } = renderWithRedux(<Controls />);
 
     const lockBtn = getByTestId("lock-btn");
     const closeBtn = getByTestId("close-btn");
@@ -20,7 +35,7 @@ describe("CONTROLS COMPONENT", () => {
   });
 
   test("buttons' text changes to reflect the state the door will be in if clicked", () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithRedux(
       <Dashboard>
         <Controls />
       </Dashboard>
@@ -45,7 +60,7 @@ describe("CONTROLS COMPONENT", () => {
   });
 
   test("the closed toggle button is disabled if the gate is locked", () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithRedux(
       <Dashboard>
         <Controls />
       </Dashboard>
@@ -65,7 +80,7 @@ describe("CONTROLS COMPONENT", () => {
   });
 
   test("the locked toggle button is disabled if the gate is open", () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithRedux(
       <Dashboard>
         <Controls />
       </Dashboard>

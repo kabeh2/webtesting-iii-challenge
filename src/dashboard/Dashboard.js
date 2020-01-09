@@ -1,16 +1,13 @@
 import React from "react";
+import { connect } from "react-redux";
 
 import Display from "../display/Display";
 import Controls from "../controls/Controls";
+import { toggleLocked, toggleClosed } from "../redux/actions/actionCreators";
 
 class Dashboard extends React.Component {
-  state = {
-    locked: false,
-    closed: false
-  };
-
   render() {
-    const { closed, locked } = this.state;
+    const { closed, locked, toggleClosed, toggleLocked } = this.props;
 
     return (
       <>
@@ -18,20 +15,26 @@ class Dashboard extends React.Component {
         <Controls
           locked={locked}
           closed={closed}
-          toggleLocked={this.toggleLocked}
-          toggleClosed={this.toggleClosed}
+          toggleLocked={toggleLocked}
+          toggleClosed={toggleClosed}
         />
       </>
     );
   }
-
-  toggleLocked = () => {
-    this.setState(prev => ({ locked: !prev.locked }));
-  };
-
-  toggleClosed = () => {
-    this.setState(prev => ({ closed: !prev.closed }));
-  };
 }
 
-export default Dashboard;
+const mapStateToProps = state => {
+  return {
+    locked: state.locked,
+    closed: state.closed
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    toggleLocked: () => dispatch(toggleLocked()),
+    toggleClosed: () => dispatch(toggleClosed())
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

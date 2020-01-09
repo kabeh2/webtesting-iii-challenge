@@ -1,16 +1,32 @@
 import React from "react";
+import { createStore } from "redux";
+import { Provider } from "react-redux";
 import { render, fireEvent, cleanup } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
+import { reducer } from "../redux/reducer";
 import Controls from "../controls/Controls";
 import Display from "./Display";
 import Dashboard from "../dashboard/Dashboard";
 
 // Test away!
 
+function renderWithRedux(
+  component,
+  { initialState, store = createStore(reducer, initialState) } = {}
+) {
+  return {
+    ...render(<Provider store={store}>{component}</Provider>),
+    // adding `store` to the returned utilities to allow us
+    // to reference it in our tests (just try to avoid using
+    // this to test implementation details).
+    store
+  };
+}
+
 describe("DISPLAY COMPONENT", () => {
   afterEach(cleanup);
   test("displays if gate is open/closed and if it is locked/unlocked", () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithRedux(
       <Dashboard>
         <Display />
         <Controls />
@@ -22,7 +38,7 @@ describe("DISPLAY COMPONENT", () => {
   });
 
   test("displays 'Closed' if the closed prop is true and 'Open' if otherwise", () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithRedux(
       <Dashboard>
         <Display />
         <Controls />
@@ -44,7 +60,7 @@ describe("DISPLAY COMPONENT", () => {
   });
 
   test("displays 'Locked' if the locked prop is true and 'Unlocked' if otherwise", () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithRedux(
       <Dashboard>
         <Display />
         <Controls />
@@ -70,7 +86,7 @@ describe("DISPLAY COMPONENT", () => {
   });
 
   test("when locked or closed use the red-led class", () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithRedux(
       <Dashboard>
         <Display />
         <Controls />
@@ -93,7 +109,7 @@ describe("DISPLAY COMPONENT", () => {
   });
 
   test("when unlocked or open use the green-led class", () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithRedux(
       <Dashboard>
         <Display />
         <Controls />
