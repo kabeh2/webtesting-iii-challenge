@@ -1,15 +1,35 @@
 // Test away
 import React from "react";
+import { createStore } from "redux";
+import { Provider } from "react-redux";
 import { render, fireEvent, cleanup } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
+import { iniialState, reducer } from "../redux/reducer";
 import Controls from "../controls/Controls";
 import Display from "../display/Display";
 import Dashboard from "./Dashboard";
 
+// this is a handy function that I normally make available for all my tests
+// that deal with connected components.
+// you can provide initialState for the entire store that the ui is rendered with
+
+function renderWithRedux(
+  component,
+  { initialState, store = createStore(reducer, initialState) } = {}
+) {
+  return {
+    ...render(<Provider store={store}>{component}</Provider>),
+    // adding `store` to the returned utilities to allow us
+    // to reference it in our tests (just try to avoid using
+    // this to test implementation details).
+    store
+  };
+}
+
 describe("GATE", () => {
   afterEach(cleanup);
   test("should default to unlocked and open", () => {
-    const { getByTestId } = render(<Display />);
+    const { getByTestId } = renderWithRedux(<Display />);
 
     // Lock Status Should be Unlocked?
     expect(getByTestId("lock-status").textContent).toBe("Unlocked");
@@ -20,7 +40,7 @@ describe("GATE", () => {
   test("cannot be closed or opened if it is locked", () => {
     // Default to unlocked and open
     //   const {getByTestId } = render(<Display />)
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithRedux(
       <Dashboard>
         <Controls />
       </Dashboard>
@@ -47,7 +67,7 @@ describe("DASHBOARD", () => {
   afterEach(cleanup);
 
   test("shows the controls and display", () => {
-    const { getByTestId } = render(<Dashboard />);
+    const { getByTestId } = renderWithRedux(<Dashboard />);
 
     // Controls component rendered?
     expect(getByTestId("controls-component")).toBeTruthy();
