@@ -1,3 +1,5 @@
+### View My Completed Work: https://kabeh2.github.io/webtesting-iii-challenge/
+
 # Testing III
 
 In this project, you will demonstrate proficiency by writing unit tests for an existing React application. Your tests should verify the behavior listed in the _Minimum Viable Product_ section.
@@ -28,18 +30,18 @@ The requirements are listed under the _Minimum Viable Product_ section below.
 
 Follow these steps to setup your git _fork_ and _branch_.
 
-- [ ] Fork this repository.
-- [ ] Use GitHub's website to add your project manager as collaborator on **your fork**.
-- [ ] **Clone your forked version** of the repository (**Not Lambda's**!).
-- [ ] Create a new branch: `git checkout -b <firstName-lastName>`.
-- [ ] Commit changes to your `<firstName-lastName>` branch.
-- [ ] Push often to your branch: `git push origin <firstName-lastName>`.
+- [x] Fork this repository.
+- [x] Use GitHub's website to add your project manager as collaborator on **your fork**.
+- [x] **Clone your forked version** of the repository (**Not Lambda's**!).
+- [x] Create a new branch: `git checkout -b <firstName-lastName>`.
+- [x] Commit changes to your `<firstName-lastName>` branch.
+- [x] Push often to your branch: `git push origin <firstName-lastName>`.
 
 Follow these steps for completing your project.
 
-- [ ] Submit a Pull-Request to merge the `<firstName-lastName>` branch into the master branch on your fork. **Please don't merge your own pull request**
-- [ ] Use GitHub's website to add your project manager as a reviewer on the pull-request.
-- [ ] Your project manager will count the project as complete by merging the branch back into the master branch of your forked repository.
+- [x] Submit a Pull-Request to merge the `<firstName-lastName>` branch into the master branch on your fork. **Please don't merge your own pull request**
+- [x] Use GitHub's website to add your project manager as a reviewer on the pull-request.
+- [x] Your project manager will count the project as complete by merging the branch back into the master branch of your forked repository.
 
 ## Minimum Viable Product
 
@@ -51,30 +53,30 @@ The expected/assumed behavior of the application is listed below.
 
 ### Gate
 
-- defaults to `unlocked` and `open`
-- cannot be closed or opened if it is locked
+- [x]- defaults to `unlocked` and `open`
+- [x] cannot be closed or opened if it is locked
 
 ### Dashboard
 
-- shows the controls and display
+- [x] shows the controls and display
 
 ### Display Component
 
-- displays if gate is open/closed and if it is locked/unlocked
-- displays 'Closed' if the `closed` prop is `true` and 'Open' if otherwise
-- displays 'Locked' if the `locked` prop is `true` and 'Unlocked' if otherwise
-- when `locked` or `closed` use the `red-led` class
-- when `unlocked` or `open` use the `green-led` class
+- [x] displays if gate is open/closed and if it is locked/unlocked
+- [x] displays 'Closed' if the `closed` prop is `true` and 'Open' if otherwise
+- [x] displays 'Locked' if the `locked` prop is `true` and 'Unlocked' if otherwise
+- [x] when `locked` or `closed` use the `red-led` class
+- [x] when `unlocked` or `open` use the `green-led` class
 
 ### Controls Component
 
-- provide buttons to toggle the `closed` and `locked` states.
-- buttons' text changes to reflect the state the door will be in if clicked
-- the closed toggle button is disabled if the gate is locked
-- the locked toggle button is disabled if the gate is open
+- [x] provide buttons to toggle the `closed` and `locked` states.
+- [x] buttons' text changes to reflect the state the door will be in if clicked
+- [x] the closed toggle button is disabled if the gate is locked
+- [x] the locked toggle button is disabled if the gate is open
 
 ## Stretch Problem
 
 This section is **optional** and not counted towards MVP. Start working on it after you're done with the main assignment.
 
-- add `Redux` and [read this example in the docs](https://testing-library.com/docs/example-react-redux) to learn how to write tests for it.
+- [x] add `Redux` and [read this example in the docs](https://testing-library.com/docs/example-react-redux) to learn how to write tests for it.

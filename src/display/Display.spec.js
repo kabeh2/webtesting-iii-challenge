@@ -3,7 +3,7 @@ import { createStore } from "redux";
 import { Provider } from "react-redux";
 import { render, fireEvent, cleanup } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-import { reducer } from "../redux/reducer";
+import { initialState, reducer } from "../redux/reducer";
 import Controls from "../controls/Controls";
 import Display from "./Display";
 import Dashboard from "../dashboard/Dashboard";
